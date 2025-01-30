@@ -1,26 +1,39 @@
 ---
 import "@/style/index.css";
+
+import BaseHead from "@/components/base/BaseHead.astro";
+
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/constants";
+
+const {
+	title = SITE_TITLE,
+	description = SITE_DESCRIPTION,
+	image,
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
-  </head>
-  <body>
-    <slot />
-  </body>
+	<head>
+		<BaseHead
+			title={title === SITE_TITLE
+				? `Home • ${title}`
+				: `${title} • ${SITE_TITLE}`}
+			description={description}
+			image={image}
+		/>
+	</head>
+
+	<body>
+		<slot />
+	</body>
 </html>
 
 <style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
+	@reference "@/style/index.css";
+
+	html,
+	body {
+		@apply m-0 w-full h-full;
+	}
 </style>
