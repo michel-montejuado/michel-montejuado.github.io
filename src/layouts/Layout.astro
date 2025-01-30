@@ -32,13 +32,15 @@ const {
 <style>
 	@reference "@/style/index.css";
 
-	:root {
-		@apply bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100;
-		@apply font-sans;
-	}
+	@layer base {
+		:root {
+			@apply bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100;
+			@apply font-sans;
+		}
 
-	html,
-	body {
-		@apply m-0 w-full h-full;
+		html,
+		body {
+			@apply m-0 w-full h-full;
+		}
 	}
 </style>
