@@ -1,5 +1,63 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
 	--font-sans: Nunito, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@layer base {
+	:root {
+		@apply bg-zinc-100 text-zinc-950 dark:bg-zinc-900 dark:text-zinc-50;
+		@apply font-sans;
+	}
+
+	html {
+		@apply h-full;
+	}
+
+	body {
+		@apply m-0 h-screen;
+		@apply grid grid-rows-[auto_1fr] grid-cols-[auto_1fr];
+		@apply overflow-hidden;
+		grid-template-areas: "header header" "aside main";
+
+		&>header {
+			grid-area: header;
+		}
+
+		&>aside {
+			grid-area: aside;
+			@apply overflow-auto;
+		}
+
+		&>main {
+			grid-area: main;
+			@apply overflow-auto;
+		}
+	}
+}
+
+@layer components {
+	.icon {
+		font-family: 'Material Symbols Rounded';
+		font-weight: normal;
+		font-style: normal;
+		font-size: 24px;
+		line-height: 1;
+		letter-spacing: normal;
+		text-transform: none;
+		display: inline-block;
+		white-space: nowrap;
+		word-wrap: normal;
+		direction: ltr;
+		-webkit-font-feature-settings: 'liga';
+		font-feature-settings: 'liga';
+		-webkit-font-smoothing: antialiased;
+		font-variation-settings:
+			'FILL' 1,
+			'wght' 400,
+			'GRAD' 0,
+			'opsz' 24
+	}
 }

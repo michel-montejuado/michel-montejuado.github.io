@@ -13,7 +13,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<BaseHead
 			title={title === SITE_TITLE
@@ -28,19 +28,3 @@ const {
 		<slot />
 	</body>
 </html>
-
-<style>
-	@reference "@/style/index.css";
-
-	@layer base {
-		:root {
-			@apply bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100;
-			@apply font-sans;
-		}
-
-		html,
-		body {
-			@apply m-0 w-full h-full;
-		}
-	}
-</style>
